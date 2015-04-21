@@ -3,8 +3,7 @@
 var fs = require('fs-extra'),
     mergeTree = require('broccoli-merge-trees'),
     concatAndSourceMap = require('broccoli-sourcemap-concat'),
-    compileLess = require('broccoli-less-single'),
-    pickFiles = require ('broccoli-static-compiler');
+    compileLess = require('broccoli-less-single');
 
 var infra, platform, shared, admin, sap, saw;
 var adminCss, sawCss, sapCss;
