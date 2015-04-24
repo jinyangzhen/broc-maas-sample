@@ -30,16 +30,19 @@ function isMergeTreeExists(filename){
 
 fs.watch('tmp', function (event, filename) {
 
-    if (filename.indexOf('tree_merge') === 0) {
+    if (filename && filename.indexOf('tree_merge') === 0) {
         var start = process.hrtime();
         console.log(event + filename);
         if (isMergeTreeExists('tmp' + path.sep + filename)) {
             console.log('find a valid resulting merged tree -' + filename);
-            fs.lstat('../ui/app/devjs', function (err) {
+            fs.lstat('../ui/app/devjs', function (err, lstat) {
 
-                if (!err) {
+                if (!err && lstat.isSymbolicLink()) {
                     //link exists, remove at first
                     fs.unlinkSync('../ui/app/devjs');
+                }
+                else if(!err) {
+                    fs.removeSync('../ui/app/devjs');
                 }
 
                 //link broccoli tree output to maas link devjs
