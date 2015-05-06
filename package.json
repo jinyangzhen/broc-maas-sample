@@ -2,6 +2,9 @@
   "name":"ui-fast-watcher",
   "version":"0.1.0",
   "devDependencies":{
+    "grunt":"0.4.5",
+    "time-grunt":"1.1.1",
+    "grunt-concat-sourcemap":"0.4.3",
     "broccoli":"0.15.3",
     "broccoli-less-single":"0.2.0",
     "broccoli-sourcemap-concat":"0.4.3",
