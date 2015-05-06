@@ -52,6 +52,34 @@ module.exports = function (grunt) {
                     options: {
                         spawn: false
                     }
+                },
+                infra:{
+                    files: ['../ui/app/js/modules/infra/**/*.js'],
+                    tasks: ['concat_sourcemap:infra'],
+                    options: {
+                        spawn: false
+                    }
+                },
+                shared:{
+                    files: ['../ui/app/js/modules/shared/**/*.js'],
+                    tasks: ['concat_sourcemap:shared'],
+                    options: {
+                        spawn: false
+                    }
+                },
+                sap: {
+                    files: ['../ui/app/js/modules/sap/**/*.js'],
+                    tasks: ['concat_sourcemap:sap'],
+                    options: {
+                        spawn: false
+                    }
+                },
+                admin: {
+                    files: ['../ui/app/js/modules/admin/**/*.js'],
+                    tasks: ['concat_sourcemap:admin'],
+                    options: {
+                        spawn: false
+                    }
                 }
             }
         }
