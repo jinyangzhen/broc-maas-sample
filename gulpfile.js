@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat-sourcemap');
+//var duration = require('gulp-duration')
 
 gulp.task('infra', function (){
     return gulp.src('../ui/app/js/modules/infra/**/*.js').pipe(concat('infra.js')).pipe(gulp.dest('dist/js'));
@@ -28,5 +29,5 @@ gulp.task('sap', function (){
 gulp.task('default', ['infra', 'admin','shared','saw','platform','sap']);
 
 gulp.task('watch', function() {
-    gulp.watch('../../modules/**/*.*', ['default']);
+    gulp.watch('../ui/app/js/modules/saw/**/*.js', ['saw']);
 });
