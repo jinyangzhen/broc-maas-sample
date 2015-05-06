@@ -36,11 +36,29 @@ module.exports = function (grunt) {
                         'dest/js/sap.js': ['../ui/app/js/modules/sap/**/*.js']
                     }
                 }
+            },
+
+            watch: {
+                saw: {
+                    files: ['../ui/app/js/modules/saw/**/*.js'],
+                    tasks: ['concat_sourcemap:saw'],
+                    options: {
+                        spawn: false
+                    }
+                },
+                platform:{
+                    files: ['../ui/app/js/modules/platform/**/*.js'],
+                    tasks: ['concat_sourcemap:platform'],
+                    options: {
+                        spawn: false
+                    }
+                }
             }
         }
     );
 
     grunt.loadNpmTasks('grunt-concat-sourcemap');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['concat_sourcemap:admin',
         'concat_sourcemap:infra',
