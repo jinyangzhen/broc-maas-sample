@@ -3,8 +3,24 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     grunt.initConfig({
+            less:{
+                dev:{
+                    options: {
+                        paths: ['../ui/app/resources','../ui/app/js/modules'],
+                        sourceMap: true
+                    },
+                    files: {
+                        '../ui/app/devcss/style/plat/theme.css': '../ui/app/resources/css/theme.less',
+                        '../ui/app/devcss/style/admin/theme.css': '../ui/app/js/modules/admin/resources/css/theme.less',
+                        '../ui/app/devcss/style/sap/theme.css': '../ui/app/js/modules/sap/resources/css/theme.less',
+                        '../ui/app/devcss/style/saw/theme.css': '../ui/app/js/modules/saw/resources/css/theme.less'
+                    }
+                }
+            },
             concat_sourcemap: {
-                options: {},
+                options: {
+                    sourcesContent: true
+                },
                 admin: {
                     files: {
                         '../ui/app/devjs/admin.js': ['../ui/app/js/modules/admin/admin.js', '../ui/app/modules/admin/**/*.js']
@@ -79,13 +95,22 @@ module.exports = function (grunt) {
                     options: {
                         spawn: false
                     }
+                },
+                less:{
+                    files: ['../ui/app/**/*.less'],
+                    tasks: ['less:dev'],
+                    options: {
+                        spawn: false
+                    }
                 }
+
             }
         }
     );
 
     grunt.loadNpmTasks('grunt-concat-sourcemap');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('default', ['concat_sourcemap:admin',
         'concat_sourcemap:infra',
