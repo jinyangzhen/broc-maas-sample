@@ -4,36 +4,35 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
             concat_sourcemap: {
-
                 options: {},
                 admin: {
                     files: {
-                        'dest/js/admin.js': ['../ui/app/js/modules/admin/**/*.js']
+                        '../ui/app/devjs/admin.js': ['../ui/app/js/modules/admin/admin.js', '../ui/app/modules/admin/**/*.js']
                     }
                 },
                 infra: {
                     files: {
-                        'dest/js/infra.js': ['../ui/app/js/modules/infra/**/*.js']
+                        '../ui/app/devjs/infra.js': ['../ui/app/modules/infra/**/*-module.js', '../ui/app/modules/infra/**/*.js']
                     }
                 },
                 shared: {
                     files: {
-                        'dest/js/shared.js': ['../ui/app/js/modules/shared/**/*.js']
+                        '../ui/app/devjs/shared.js': ['../ui/app/modules/shared/shared.js', '../ui/app/modules/shared/**/*.js']
                     }
                 },
                 saw: {
                     files: {
-                        'dest/js/saw.js': ['../ui/app/js/modules/saw/**/*.js']
+                        '../ui/app/devjs/saw.js': ['../ui/app/modules/saw/saw.js', '../ui/app/modules/saw/**/*.js']
                     }
                 },
                 platform: {
                     files: {
-                        'dest/js/platform.js': ['../ui/app/js/modules/platform/**/*.js']
+                        '../ui/app/devjs/platform.js': ['../ui/app/modules/platform/**/*-module.js', '../ui/app/modules/platform/**/*.js']
                     }
                 },
                 sap: {
                     files: {
-                        'dest/js/sap.js': ['../ui/app/js/modules/sap/**/*.js']
+                        '../ui/app/devjs/sap.js': ['../ui/app/modules/sap/sap.js', '../ui/app/modules/sap/**/*.js']
                     }
                 }
             },
