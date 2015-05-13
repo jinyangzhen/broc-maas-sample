@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 
-    var fs = require('fs-extra');
+    var watchInterval = 2000,  //avoid cpu spike in window
+        fs = require('fs-extra');
 
     function cb(err) {
         if (err) return console.error(err);
@@ -66,7 +67,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/js/modules/saw/**/*.js'],
                     tasks: ['concat_sourcemap:saw'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 },
@@ -74,7 +75,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/js/modules/platform/**/*.js'],
                     tasks: ['concat_sourcemap:platform'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 },
@@ -82,7 +83,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/js/modules/infra/**/*.js'],
                     tasks: ['concat_sourcemap:infra'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 },
@@ -90,7 +91,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/js/modules/shared/**/*.js'],
                     tasks: ['concat_sourcemap:shared'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 },
@@ -98,7 +99,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/js/modules/sap/**/*.js'],
                     tasks: ['concat_sourcemap:sap'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 },
@@ -106,7 +107,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/js/modules/admin/**/*.js'],
                     tasks: ['concat_sourcemap:admin'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 },
@@ -114,7 +115,7 @@ module.exports = function (grunt) {
                     files: ['../ui/app/**/*.less'],
                     tasks: ['less:dev'],
                     options: {
-                        interval:5007,
+                        interval:watchInterval,
                         spawn: false
                     }
                 }
