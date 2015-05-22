@@ -6,7 +6,7 @@ var fs = require('fs-extra'),
     compileLess = require('broccoli-less-single');
 
 var infra, platform, shared, admin, sap, saw;
-var adminCss, sawCss, sapCss;
+var adminCss, sawCss, sapCss, platformCss;
 
 function cb(err) {
     if (err) return console.error(err);
@@ -21,6 +21,7 @@ fs.copy('nginx_conf/maas-locations.conf', '../tomcats/nginx/conf/maas-locations.
 adminCss = compileLess('../ui/app/js/modules/admin', 'resources/css/theme.less', 'style/admin/theme.css');
 sawCss = compileLess('../ui/app/js/modules/saw', 'resources/css/theme.less', 'style/saw/theme.css');
 sapCss = compileLess('../ui/app/js/modules/sap', 'resources/css/theme.less', 'style/sap/theme.css');
+platformCss = compileLess('../ui/app/', 'resources/css/theme.less', 'resources/css/theme.css');
 
 infra = concatAndSourceMap('../ui/app/js/modules/infra', {
     inputFiles: ['../../modules/infra/**/*-module.js', '../../modules/infra/**/*.js'],
@@ -53,4 +54,4 @@ saw = concatAndSourceMap('../ui/app/js/modules/saw', {
 });
 
 
-module.exports = mergeTree([infra, platform, shared, admin, sap, saw, adminCss, sawCss, sapCss]);   //
+module.exports = mergeTree([infra, platform, shared, admin, sap, saw, adminCss, sawCss, sapCss, platformCss]);   //
